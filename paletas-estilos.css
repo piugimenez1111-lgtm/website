@@ -1,0 +1,206 @@
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f0ede6;
+    font-family: 'DM Sans', sans-serif;
+    padding: 40px 20px 60px;
+    min-height: 100vh;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #1a1a1a;
+    letter-spacing: 0.05em;
+  }
+
+  .header p {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-top: 6px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.08);
+    background: white;
+  }
+
+  /* Swatch strip */
+  .swatches {
+    display: flex;
+    height: 130px;
+  }
+
+  .swatch {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    transition: flex 0.3s ease;
+    cursor: default;
+  }
+
+  .swatch:hover { flex: 1.6; }
+
+  .swatch-hex {
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.8);
+    mix-blend-mode: difference;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Card body */
+  .card-body {
+    padding: 22px 24px 26px;
+  }
+
+  .palette-num {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 4px;
+  }
+
+  .palette-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    margin-bottom: 18px;
+  }
+
+  .divider {
+    height: 1px;
+    background: #f0ede6;
+    margin-bottom: 18px;
+  }
+
+  /* Font preview */
+  .font-block {
+    margin-bottom: 6px;
+  }
+
+  .font-tag {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #ccc;
+    margin-bottom: 3px;
+  }
+
+  .font-preview-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .font-preview-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  /* Chips */
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 16px;
+  }
+
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f5f2ed;
+    border-radius: 20px;
+    padding: 4px 10px 4px 5px;
+    font-size: 0.68rem;
+    color: #666;
+  }
+
+  .chip-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.07);
+    flex-shrink: 0;
+  }
+
+  /* CTA button mockup */
+  .cta-mock {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+  }
+
+  /* Mood tag */
+  .mood {
+    font-size: 0.68rem;
+    color: #aaa;
+    font-style: italic;
+    margin-top: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+  }
+
+  /* ── PALETA A: Musgo y Paja ── */
+  .pA .s1 { background: #5c6b4a; }
+  .pA .s2 { background: #e8e0c8; }
+  .pA .s3 { background: #f5f0e0; }
+  .pA .s4 { background: #2c2c2c; }
+  .pA-title { color: #5c6b4a; }
+  .pA-cta { background: #5c6b4a; color: #f5f0e0; }
+
+  /* ── PALETA B: Salvia y Manteca ── */
+  .pB .s1 { background: #8a9e86; }
+  .pB .s2 { background: #f0eed8; }
+  .pB .s3 { background: #d4b896; }
+  .pB .s4 { background: #1a1a1a; }
+  .pB-title { color: #6b8266; }
+  .pB-cta { background: #d4b896; color: #1a1a1a; }
+
+  /* ── PALETA C: Palta y Ocre ── */
+  .pC .s1 { background: #7a8c4e; }
+  .pC .s2 { background: #f2e8b0; }
+  .pC .s3 { background: #f7f3e4; }
+  .pC .s4 { background: #3a3a2a; }
+  .pC-title { color: #7a8c4e; }
+  .pC-cta { background: #f2e8b0; color: #3a3a2a; border: 1px solid #d4cc88; }
+
+  /* ── PALETA D: Bosque Suave ── */
+  .pD .s1 { background: #4a5240; }
+  .pD .s2 { background: #a8b898; }
+  .pD .s3 { background: #f5f0d8; }
+  .pD .s4 { background: #c8973f; }
+  .pD-title { color: #4a5240; }
+  .pD-cta { background: #c8973f; color: #f5f0d8; }

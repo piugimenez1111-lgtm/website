@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espíritu TAO — Tatuajes & Murales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ───────────────────────── TOKENS ───────────────────────── */
+    :root {
+      --bg:        #f7f3e4;
+      --bg-alt:    #ede8d0;
+      --dark:      #3a3a2a;
+      --text:      #3a3a2a;
+      --muted:     #727848;
+      --olive:     #7a8c4e;
+      --olive-lt:  #96a864;
+      --sage:      #b4c492;
+      --yellow:    #f2e8b0;
+      --yellow-lt: #f8f4d0;
+      --earth:     #c8b460;
+      --earth-dk:  #a09040;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+
+      --gap: clamp(3rem, 8vw, 7rem);
+      --radius: 2px;
+    }
+
+    /* ───────────────────────── RESET ───────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select {
+      font: inherit;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    /* ───────────────────────── LAYOUT ───────────────────────── */
+    .container { width: min(1160px, 90%); margin-inline: auto; }
+    .section    { padding-block: var(--gap); }
+
+    /* ───────────────────────── NAV ───────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(247,242,232,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(107,124,58,.15);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--olive);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.1;
+    }
+    .nav-logo span { font-family:var(--sans); color: var(--earth-dk); font-size: 1rem; font-weight: 400; letter-spacing: .25em; text-transform: uppercase; }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .nav-links a {
+      color: var(--muted);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--olive); }
+    .nav-cta {
+      padding: .55rem 1.4rem;
+      border: 1.5px solid var(--olive);
+      border-radius: 100px;
+      color: var(--olive);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { background: var(--olive); color: #fff; }
+    .nav-actions { display: flex; align-items: center; gap: .8rem; }
+    .nav-ig { color: var(--muted); display: flex; align-items: center; transition: color .2s; }
+    .nav-ig:hover { color: var(--olive); }
+
+    /* ───────────────────────── HERO ───────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .hero-text {
+      padding: 8rem 5% 3rem 7%;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--earth-dk);
+      margin-bottom: 1.4rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--earth-dk);
+      vertical-align: middle;
+      margin-right: .6rem;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 1.8rem;
+    }
+    h1 em {
+      font-style: normal;
+      font-weight: 400;
+      font-size: .7em;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--earth-dk);
+      font-family: var(--sans); 
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 38ch;
+      line-height: 1.8;
+      margin-bottom: 2.8rem;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      padding: .9rem 2.2rem;
+      background: var(--olive);
+      color: #fff;
+      border-radius: 100px;
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: background .25s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--earth-dk); transform: translateY(-1px); }
+    .btn-primary svg { width: 16px; height: 16px; }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .8rem;
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .9rem 1.8rem;
+      border: 1.5px solid var(--muted);
+      border-radius: 100px;
+      color: var(--muted);
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--olive); color: var(--olive); }
+
+    /* hero visual */
+    .hero-visual {
+      position: relative;
+      height: 130svh;
+      overflow: hidden;
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(.85);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--bg) 0%, transparent 25%);
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      width: 110px;
+      height: 110px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--dark);
+      line-height: 1.3;
+      letter-spacing: .02em;
+    }
+    .hero-badge strong { font-size: 1.05rem; display: block; }
+
+    /* ───────────────────────── MANIFESTO ───────────────────────── */
+    #manifesto {
+      background: var(--dark);
+      padding: 5rem 5%;
+      text-align: center;
+    }
+    .manifesto-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--yellow-lt);
+      line-height: 1.4;
+      max-width: 820px;
+      margin-inline: auto;
+    }
+    .manifesto-quote span { color: var(--sage); }
+
+    /* ───────────────────────── ABOUT ───────────────────────── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+    .about-img {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+    }
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.9);
+    }
+    .about-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(43,39,24,.4));
+    }
+    .about-content {
+      background: var(--bg-alt);
+      padding: clamp(3rem, 7vw, 6rem) clamp(2.5rem, 5vw, 5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .section-tag {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--earth-dk);
+      margin-bottom: 1.2rem;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 1.4rem;
+    }
+    h2 em { font-style: italic; color: var(--olive); }
+    .about-text {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+    .about-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 1rem;
+    }
+    .pill {
+      padding: .4rem 1rem;
+      background: var(--bg);
+      border: 1px solid rgba(107,124,58,.3);
+      border-radius: 100px;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      color: var(--olive);
+      text-transform: uppercase;
+    }
+
+    /* ───────────────────────── SERVICES ───────────────────────── */
+    #services .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+    .service-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease, filter .4s ease;
+      filter: saturate(.75);
+    }
+    .service-card:hover img { transform: scale(1.04); filter: saturate(1); }
+    .service-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(43,39,24,.85) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+    }
+    .service-card-tag {
+      font-size: .7rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: .5rem;
+    }
+    .service-card h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: .8rem;
+    }
+    .service-card p {
+      font-size: .85rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.7;
+      max-width: 38ch;
+      margin-bottom: 1.4rem;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      transition: gap .2s;
+    }
+    .service-link:hover { gap: .9rem; }
+    .service-link::after { content: '→'; }
+
+    /* ───────────────────────── GALLERY ───────────────────────── */
+    #gallery { padding-block: var(--gap); }
+    #gallery .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .6rem;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      padding: .45rem 1.3rem;
+      border: 1.5px solid transparent;
+      border-radius: 100px;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s;
+      color: var(--muted);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--olive);
+      border-color: var(--olive);
+      color: #fff;
+    }
+    .gallery-grid {
+      columns: 3;
+      column-gap: 10px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--bg-alt);
+      break-inside: avoid;
+      margin-bottom: 10px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(43,39,24,.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .gallery-item:hover .gallery-item-hover { opacity: 1; }
+    .gallery-item-hover span {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #fff;
+      letter-spacing: .05em;
+    }
+
+    /* ───────────────────────── PROCESS ───────────────────────── */
+    #process {
+      background: var(--bg-alt);
+      padding-block: var(--gap);
+    }
+    #process .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--sage), transparent);
+    }
+    .process-step {
+      text-align: center;
+      padding: .5rem;
+    }
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1.5px solid var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--olive);
+      margin: 0 auto 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: .6rem;
+    }
+    .step-desc {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ───────────────────────── BOOKING ───────────────────────── */
+    #booking {
+      padding-block: var(--gap);
+    }
+    .booking-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .booking-info .section-tag { margin-bottom: 1rem; }
+    .booking-info h2 { margin-bottom: 1.4rem; }
+    .booking-info p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+    .booking-note {
+      padding: 1.2rem 1.5rem;
+      background: var(--yellow-lt);
+      border-left: 3px solid var(--earth);
+      border-radius: 0 4px 4px 0;
+      font-size: .85rem;
+      color: var(--earth-dk);
+      line-height: 1.7;
+    }
+    .booking-note strong { display: block; margin-bottom: .3rem; }
+
+    /* form */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+    .form-group.full { grid-column: span 2; }
+    label {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    input, select, textarea {
+      padding: .8rem 1rem;
+      background: var(--bg-alt);
+      border: 1.5px solid transparent;
+      border-radius: 4px;
+      font-size: .92rem;
+      color: var(--dark);
+      transition: border-color .2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--olive);
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); opacity: .6; }
+    textarea { resize: vertical; min-height: 110px; }
+    select { cursor: pointer; }
+    .form-submit {
+      margin-top: .8rem;
+      grid-column: span 2;
+    }
+    .form-submit .btn-primary {
+      width: 100%;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    /* ───────────────────────── FOOTER ───────────────────────── */
+    footer {
+      background: var(--dark);
+      padding: 4rem 5% 2.5rem;
+      color: rgba(255,255,255,.5);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 2rem;
+    }
+    .footer-brand .nav-logo { font-size: 1.6rem; color: var(--yellow-lt); margin-bottom: 1rem; display: block; }
+    .footer-brand p { font-size: .88rem; line-height: 1.8; max-width: 30ch; }
+    .footer-col h4 {
+      font-size: .72rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .6rem; }
+    .footer-col ul a { font-size: .88rem; transition: color .2s; }
+    .footer-col ul a:hover { color: var(--yellow-lt); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .8rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+      transition: border-color .2s, color .2s;
+      color: rgba(255,255,255,.5);
+      font-size: .8rem;
+    }
+    .social-links a:hover { border-color: var(--sage); color: var(--sage); }
+
+    /* ───────────────────────── DECORATIVE ───────────────────────── */
+    .deco-line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .deco-line::before, .deco-line::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--sage));
+    }
+    .deco-line::after { background: linear-gradient(to left, transparent, var(--sage)); }
+    .deco-line span {
+      font-size: .75rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--sage);
+      white-space: nowrap;
+    }
+
+    /* ───────────────────────── RESPONSIVE (basic) ───────────────────────── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-visual { height: 60vw; min-height: 320px; }
+      .hero-overlay { background: linear-gradient(to top, var(--bg) 0%, transparent 30%); }
+      #about { grid-template-columns: 1fr; }
+      .about-img { min-height: 340px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { columns: 2; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .booking-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full, .form-submit { grid-column: span 1; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      nav { padding: .9rem 4%; gap: .5rem; }
+      .nav-links { display: none; }
+      .nav-logo { font-size: 1.1rem; }
+      .nav-cta { padding: .4rem .9rem; font-size: .7rem; letter-spacing: .06em; white-space: nowrap; }
+      .nav-ig svg { width: 18px; height: 18px; }
+      .filter-btn { padding: .38rem .9rem; font-size: .73rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════ NAV ══════════════════ -->
+  <nav>
+    <a class="nav-logo" href="#hero">Espíritu <span>TAO</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#gallery">Portfolio</a></li>
+      <li><a href="#booking">Turnos</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://www.instagram.com/espiritu_tao/" target="_blank" rel="noopener" class="nav-ig" title="Instagram @espiritu_tao">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#booking" class="nav-cta">Reservar turno</a>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section id="hero">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Handpoke · Puntillismo · Murales</span>
+      <h1>
+        El tatuaje<br />
+        como <em>ritual</em><br />
+        de transformación
+      </h1>
+      <p class="hero-sub">
+        Arte que nace del vínculo entre quien lleva la imagen
+        y quien la teje en la piel. Cada diseño es único,
+        cada sesión es un encuentro.
+      </p>
+      <div class="hero-cta">
+        <a href="#booking" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          Reservar turno
+        </a>
+        <a href="#gallery" class="btn-ghost">Ver portfolio</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="img/5.webp" alt="Tatuaje sirena — Espíritu TAO" />
+      <div class="hero-overlay"></div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════ MANIFESTO ══════════════════ -->
+  <section id="manifesto">
+    <p class="manifesto-quote">
+      "No es sólo tinta en la piel.<br />
+      Es <span>naturaleza, historia, energía</span><br />
+      tomando forma en tu cuerpo."
+    </p>
+  </section>
+
+
+  <!-- ══════════════════ ABOUT ══════════════════ -->
+  <section id="about">
+    <div class="about-img">
+      <img src="img/6.webp" alt="Arte Espíritu TAO — figura en naturaleza" />
+    </div>
+    <div class="about-content">
+      <span class="section-tag">Sobre mí</span>
+      <h2>Arte, <em>ritual</em><br />y conexión</h2>
+      <p class="about-text">
+        Cada tatuaje nace de un vínculo real — entre lo que querés llevar y lo que yo puedo tejer en tu piel. No trabajo en serie. Cada diseño es tuyo, cada sesión es un encuentro genuino
+      </p>
+      <p class="about-text">
+        Mi estilo nace de la naturaleza, la ilustración y el puntillismo.
+        Cada línea tiene intención. Cada punto, presencia.
+      </p>
+      <div class="about-pills">
+        <span class="pill">Handpoke</span>
+        <span class="pill">Puntillismo</span>
+        <span class="pill">Ilustración</span>
+        <span class="pill">Murales</span>
+        <span class="pill">Diseño personalizado</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════ SERVICES ══════════════════ -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="deco-line"><span>Servicios</span></div>
+        <h2>Lo que <em>creo</em></h2>
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <!-- Tattoo card -->
+      <div class="service-card">
+        <img src="img/2.webp" alt="Tatuaje puntillismo mandala" />
+        <div class="service-card-overlay">
+          <span class="service-card-tag">Tatuajes</span>
+          <h3>Tinta<br />en tu piel</h3>
+          <p>
+            No es solo tinta, no es solo pintura. Es lo que sos, lo que viviste, lo que querés que ocupe espacio — en tu piel o en tu pared. Cada línea tiene una razón de estar ahí
+          </p>
+          <a href="#booking" class="service-link">Solicitar turno</a>
+        </div>
+      </div>
+
+      <!-- Murales card -->
+      <div class="service-card">
+        <img src="img/4.webp" alt="Arte Espíritu TAO" />
+        <div class="service-card-overlay">
+          <span class="service-card-tag">Murales</span>
+          <h3>Arte<br />en el espacio</h3>
+          <p>
+            Interiores y exteriores, hogares, locales y espacios públicos.
+            Interpreto la energía del lugar para crear una obra que le
+            pertenezca. Viajo para trabajar.
+          </p>
+          <a href="#booking" class="service-link">Consultar proyecto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════ GALLERY ══════════════════ -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="deco-line"><span>Portfolio</span></div>
+        <h2>Trabajos <em>recientes</em></h2>
+      </div>
+
+      <div class="gallery-filters">
+        <button class="filter-btn active">Todo</button>
+        <button class="filter-btn">Tatuajes</button>
+        <button class="filter-btn">Murales</button>
+        <button class="filter-btn">Flash</button>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="img/3.webp" alt="Orquídea botanica — tatuaje" />
+          <div class="gallery-item-hover"><span>Orquídea</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/1.webp" alt="Tatuaje handpoke — jabalí" />
+          <div class="gallery-item-hover"><span>Handpoke</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/7.webp" alt="Mariposa — ilustración" />
+          <div class="gallery-item-hover"><span>Mariposa</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/2.webp" alt="Mandala puntillismo solar" />
+          <div class="gallery-item-hover"><span>Mandala solar</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/6.webp" alt="Figura naturaleza — puntillismo" />
+          <div class="gallery-item-hover"><span>Espíritu</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/5.webp" alt="Sirena — ilustración" />
+          <div class="gallery-item-hover"><span>Sirena</span></div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem;">
+        <a href="https://www.instagram.com/espiritu_tao/" target="_blank" rel="noopener"
+           style="display:inline-flex; align-items:center; gap:.6rem; font-size:.82rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--olive); border:1.5px solid var(--olive); border-radius:100px; padding:.65rem 1.6rem; transition:background .2s,color .2s;"
+           onmouseover="this.style.background='var(--olive)';this.style.color='#fff';"
+           onmouseout="this.style.background='';this.style.color='var(--olive)';">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          Ver más diseños en Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════ PROCESS ══════════════════ -->
+  <section id="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="deco-line"><span>El proceso</span></div>
+        <h2>Cómo <em>funciona</em></h2>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-title">Consulta</div>
+          <p class="step-desc">Compartís tu idea, referencias, zona y tamaño. Hablamos de lo que querés transmitir.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-title">Diseño</div>
+          <p class="step-desc">Creo un diseño único basado en tu energía y la mía. Podés pedir ajustes.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-title">Seña & fecha</div>
+          <p class="step-desc">Confirmás con una seña y agendamos tu turno. La sesión es tu ritual.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <div class="step-title">La sesión</div>
+          <p class="step-desc">Un espacio sin apuro, donde el diseño aparece de a poco. Porque un buen tatuaje no se apura — se construye.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════ BOOKING ══════════════════ -->
+  <section id="booking" class="section">
+    <div class="container">
+      <div class="booking-wrap">
+
+        <div class="booking-info">
+          <span class="section-tag">Turnos & Contacto</span>
+          <h2>Empezá<br />tu <em>ritual</em></h2>
+          <p>
+            Completá el formulario con los detalles de tu idea y te contacto
+            para coordinar fecha, seña y todos los detalles de la sesión.
+          </p>
+          <p>
+            Para murales, describí brevemente el espacio y lo que imaginás.
+            Puedo viajar para proyectos fuera de la ciudad.
+          </p>
+          <div class="booking-note">
+            <strong>Importante — Seña obligatoria</strong>
+            Todos los turnos requieren una seña para confirmar la reserva.
+            El monto se comunica con la cotización.
+          </div>
+        </div>
+
+        <form>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" placeholder="Tu nombre" />
+            </div>
+            <div class="form-group">
+              <label for="servicio">Servicio</label>
+              <select id="servicio">
+                <option value="">Seleccioná...</option>
+                <option>Tatuaje personalizado</option>
+                <option>Flash tattoo</option>
+                <option>Cover-up / arreglo</option>
+                <option>Mural</option>
+                <option>Consulta general</option>
+              </select>
+            </div>
+            <div class="form-group" id="zona-group">
+              <label for="zona">Zona del cuerpo</label>
+              <input type="text" id="zona" placeholder="Ej: antebrazo izquierdo" />
+            </div>
+            <div class="form-group">
+              <label for="tamano">Tamaño (aprox.)</label>
+              <input type="text" id="tamano" placeholder="Ej: 8 × 6 cm" />
+            </div>
+            <div class="form-group full">
+              <label for="idea">Tu idea</label>
+              <textarea id="idea" placeholder="Contame qué querés tatuar, qué significa para vos, referencias, estilo, colores..."></textarea>
+            </div>
+            <div class="form-submit">
+              <a href="#booking" class="btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Enviar consulta
+              </a>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="nav-logo">Espíritu <span>TAO</span></span>
+        <p>Arte como ritual. Naturaleza como guía. Cada tatuaje y mural nace de un encuentro genuino.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#services">Tatuajes</a></li>
+          <li><a href="#services">Flash tattoos</a></li>
+          <li><a href="#services">Cover-ups</a></li>
+          <li><a href="#services">Murales</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="#about">Sobre mí</a></li>
+          <li><a href="#gallery">Portfolio</a></li>
+          <li><a href="#process">El proceso</a></li>
+          <li><a href="#booking">Reservar turno</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Espíritu TAO — Todos los derechos reservados</span>
+      <div class="social-links">
+        <a href="https://www.instagram.com/espiritu_tao/" target="_blank" rel="noopener" title="Instagram">IG</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Ocultar zona del cuerpo si el servicio es Mural
+    const servicioSelect = document.getElementById('servicio');
+    const zonaGroup = document.getElementById('zona-group');
+    servicioSelect.addEventListener('change', () => {
+      zonaGroup.style.display = servicioSelect.value === 'Mural' ? 'none' : '';
+    });
+
+    // Filter buttons (visual only for boceto)
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
