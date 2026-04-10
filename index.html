@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Espíritu TAO — Tatuajes & Murales</title>
+  <meta name="description" content="Espíritu TAO — Tatuajes handpoke, puntillismo e ilustración. Murales en interiores y exteriores. Arte como ritual de transformación. Buenos Aires, Argentina." />
+  <link rel="canonical" href="https://espiritutao.com.ar" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Espíritu TAO — Tatuajes & Murales" />
+  <meta property="og:description" content="Arte como ritual. Handpoke, puntillismo, ilustración y murales. Cada diseño es único, cada sesión es un encuentro." />
+  <meta property="og:image" content="https://espiritutao.com.ar/img/5.webp" />
+  <meta property="og:url" content="https://espiritutao.com.ar" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%237a8c4e'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23f7f3e4'>T</text></svg>" />
+
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="img/5.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -400,7 +416,7 @@
     .service-link::after { content: '→'; }
 
     /* ───────────────────────── GALLERY ───────────────────────── */
-    #gallery { padding-block: var(--gap); }
+    #gallery { padding-block: var(--gap); padding-top: 0; }
     #gallery .section-header {
       text-align: center;
       margin-bottom: 3rem;
@@ -739,7 +755,7 @@
     </div>
 
     <div class="hero-visual">
-      <img src="img/5.webp" alt="Tatuaje sirena — Espíritu TAO" />
+      <img src="img/5.webp" alt="Tatuaje sirena — Espíritu TAO" fetchpriority="high" />
       <div class="hero-overlay"></div>
     </div>
   </section>
@@ -758,7 +774,7 @@
   <!-- ══════════════════ ABOUT ══════════════════ -->
   <section id="about">
     <div class="about-img">
-      <img src="img/6.webp" alt="Arte Espíritu TAO — figura en naturaleza" />
+      <img src="img/6.webp" alt="Arte Espíritu TAO — figura en naturaleza" loading="lazy" />
     </div>
     <div class="about-content">
       <span class="section-tag">Sobre mí</span>
@@ -793,7 +809,7 @@
     <div class="services-grid">
       <!-- Tattoo card -->
       <div class="service-card">
-        <img src="img/2.webp" alt="Tatuaje puntillismo mandala" />
+        <img src="img/2.webp" alt="Tatuaje puntillismo mandala" loading="lazy" />
         <div class="service-card-overlay">
           <span class="service-card-tag">Tatuajes</span>
           <h3>Tinta<br />en tu piel</h3>
@@ -806,7 +822,7 @@
 
       <!-- Murales card -->
       <div class="service-card">
-        <img src="img/4.webp" alt="Arte Espíritu TAO" />
+        <img src="img/mural.webp" alt="Arte Espíritu TAO" loading="lazy" />
         <div class="service-card-overlay">
           <span class="service-card-tag">Murales</span>
           <h3>Arte<br />en el espacio</h3>
@@ -831,35 +847,35 @@
       </div>
 
       <div class="gallery-filters">
-        <button class="filter-btn active">Todo</button>
-        <button class="filter-btn">Tatuajes</button>
-        <button class="filter-btn">Murales</button>
-        <button class="filter-btn">Flash</button>
+        <button class="filter-btn active" data-filter="todo">Todo</button>
+        <button class="filter-btn" data-filter="tatuaje">Tatuajes</button>
+        <button class="filter-btn" data-filter="mural">Murales</button>
+        <button class="filter-btn" data-filter="flash">Flash</button>
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="img/3.webp" alt="Orquídea botanica — tatuaje" />
+        <div class="gallery-item" data-cat="tatuaje">
+          <img src="img/3.webp" alt="Orquídea botanica — tatuaje" loading="lazy" />
           <div class="gallery-item-hover"><span>Orquídea</span></div>
         </div>
-        <div class="gallery-item">
-          <img src="img/1.webp" alt="Tatuaje handpoke — jabalí" />
+        <div class="gallery-item" data-cat="tatuaje">
+          <img src="img/1.webp" alt="Tatuaje handpoke — jabalí" loading="lazy" />
           <div class="gallery-item-hover"><span>Handpoke</span></div>
         </div>
-        <div class="gallery-item">
-          <img src="img/7.webp" alt="Mariposa — ilustración" />
+        <div class="gallery-item" data-cat="flash">
+          <img src="img/7.webp" alt="Mariposa — flash tattoo" loading="lazy" />
           <div class="gallery-item-hover"><span>Mariposa</span></div>
         </div>
-        <div class="gallery-item">
-          <img src="img/2.webp" alt="Mandala puntillismo solar" />
+        <div class="gallery-item" data-cat="tatuaje">
+          <img src="img/2.webp" alt="Mandala puntillismo solar" loading="lazy" />
           <div class="gallery-item-hover"><span>Mandala solar</span></div>
         </div>
-        <div class="gallery-item">
-          <img src="img/6.webp" alt="Figura naturaleza — puntillismo" />
+        <div class="gallery-item" data-cat="tatuaje">
+          <img src="img/6.webp" alt="Figura naturaleza — puntillismo" loading="lazy" />
           <div class="gallery-item-hover"><span>Espíritu</span></div>
         </div>
-        <div class="gallery-item">
-          <img src="img/5.webp" alt="Sirena — ilustración" />
+        <div class="gallery-item" data-cat="tatuaje">
+          <img src="img/5.webp" alt="Sirena — ilustración" loading="lazy" />
           <div class="gallery-item-hover"><span>Sirena</span></div>
         </div>
       </div>
@@ -934,21 +950,21 @@
           </div>
         </div>
 
-        <form>
+        <form id="booking-form">
           <div class="form-grid">
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" placeholder="Tu nombre" />
+              <input type="text" id="nombre" placeholder="Tu nombre" required />
             </div>
             <div class="form-group">
               <label for="servicio">Servicio</label>
-              <select id="servicio">
+              <select id="servicio" required>
                 <option value="">Seleccioná...</option>
-                <option>Tatuaje personalizado</option>
-                <option>Flash tattoo</option>
-                <option>Cover-up / arreglo</option>
-                <option>Mural</option>
-                <option>Consulta general</option>
+                <option value="Tatuaje personalizado">Tatuaje personalizado</option>
+                <option value="Flash tattoo">Flash tattoo</option>
+                <option value="Cover-up / arreglo">Cover-up / arreglo</option>
+                <option value="Mural">Mural</option>
+                <option value="Consulta general">Consulta general</option>
               </select>
             </div>
             <div class="form-group" id="zona-group">
@@ -961,13 +977,13 @@
             </div>
             <div class="form-group full">
               <label for="idea">Tu idea</label>
-              <textarea id="idea" placeholder="Contame qué querés tatuar, qué significa para vos, referencias, estilo, colores..."></textarea>
+              <textarea id="idea" placeholder="Contame qué querés tatuar, qué significa para vos, referencias, estilo, colores..." required></textarea>
             </div>
             <div class="form-submit">
-              <a href="#booking" class="btn-primary">
+              <button type="submit" class="btn-primary">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                 Enviar consulta
-              </a>
+              </button>
             </div>
           </div>
         </form>
@@ -1004,14 +1020,17 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Espíritu TAO — Todos los derechos reservados</span>
+      <span>© <span id="yr"></span> Espíritu TAO — Todos los derechos reservados</span>
       <div class="social-links">
-        <a href="https://www.instagram.com/espiritu_tao/" target="_blank" rel="noopener" title="Instagram">IG</a>
+        <a href="https://www.instagram.com/espiritu_tao/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // Año dinámico en el footer
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
     // Ocultar zona del cuerpo si el servicio es Mural
     const servicioSelect = document.getElementById('servicio');
     const zonaGroup = document.getElementById('zona-group');
@@ -1019,12 +1038,35 @@
       zonaGroup.style.display = servicioSelect.value === 'Mural' ? 'none' : '';
     });
 
-    // Filter buttons (visual only for boceto)
+    // Filtros de galería
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        const cat = btn.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          item.style.display = (cat === 'todo' || item.dataset.cat === cat) ? '' : 'none';
+        });
       });
+    });
+
+    // Formulario → WhatsApp
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre  = document.getElementById('nombre').value.trim();
+      const servicio = document.getElementById('servicio').value;
+      const zona    = document.getElementById('zona').value.trim();
+      const tamano  = document.getElementById('tamano').value.trim();
+      const idea    = document.getElementById('idea').value.trim();
+
+      let msg = `Hola! Me contacto desde la web de TAO Hands.\n\n`;
+      msg += `*Nombre:* ${nombre}\n`;
+      msg += `*Servicio:* ${servicio}\n`;
+      if (servicio !== 'Mural' && zona) msg += `*Zona:* ${zona}\n`;
+      if (tamano) msg += `*Tamaño:* ${tamano}\n`;
+      msg += `*Idea:* ${idea}`;
+
+      window.open(`https://wa.me/5524999695037?text=${encodeURIComponent(msg)}`, '_blank');
     });
   </script>
 
