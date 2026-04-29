@@ -940,11 +940,11 @@
           <div class="form-grid">
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" placeholder="Tu nombre" required />
+              <input type="text" id="nombre" placeholder="Tu nombre" />
             </div>
             <div class="form-group">
               <label for="servicio">Servicio</label>
-              <select id="servicio" required>
+              <select id="servicio">
                 <option value="">Seleccioná...</option>
                 <option value="Tatuaje personalizado">Tatuaje personalizado</option>
                 <option value="Flash tattoo">Flash tattoo</option>
@@ -963,7 +963,7 @@
             </div>
             <div class="form-group full">
               <label for="idea">Tu idea</label>
-              <textarea id="idea" placeholder="Contame qué querés tatuar, qué significa para vos, referencias, estilo, colores..." required></textarea>
+              <textarea id="idea" placeholder="Contame qué querés tatuar, qué significa para vos, referencias, estilo, colores..."></textarea>
             </div>
             <div class="form-submit">
               <button type="submit" class="btn-primary">
@@ -1045,12 +1045,12 @@
       const tamano  = document.getElementById('tamano').value.trim();
       const idea    = document.getElementById('idea').value.trim();
 
-      let msg = `Hola! Me contacto desde la web de TAO Hands.\n\n`;
-      msg += `*Nombre:* ${nombre}\n`;
-      msg += `*Servicio:* ${servicio}\n`;
-      if (servicio !== 'Mural' && zona) msg += `*Zona:* ${zona}\n`;
-      if (tamano) msg += `*Tamaño:* ${tamano}\n`;
-      msg += `*Idea:* ${idea}`;
+      let msg = `Hola! Me contacto desde la web de Espíritu TAO.`;
+      if (nombre)  msg += `\n*Nombre:* ${nombre}`;
+      if (servicio) msg += `\n*Servicio:* ${servicio}`;
+      if (servicio !== 'Mural' && zona) msg += `\n*Zona:* ${zona}`;
+      if (tamano)  msg += `\n*Tamaño:* ${tamano}`;
+      if (idea)    msg += `\n*Idea:* ${idea}`;
 
       window.open(`https://wa.me/5524999695037?text=${encodeURIComponent(msg)}`, '_blank');
     });
