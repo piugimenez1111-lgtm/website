@@ -462,26 +462,6 @@
       width: 100%;
       height: auto;
       display: block;
-      transition: transform .5s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.06); }
-    .gallery-item-hover {
-      position: absolute;
-      inset: 0;
-      background: rgba(43,39,24,.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity .3s;
-    }
-    .gallery-item:hover .gallery-item-hover { opacity: 1; }
-    .gallery-item-hover span {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-style: italic;
-      color: #fff;
-      letter-spacing: .05em;
     }
 
     /* ───────────────────────── PROCESS ───────────────────────── */
@@ -852,33 +832,37 @@
         <button class="filter-btn active" data-filter="todo">Todo</button>
         <button class="filter-btn" data-filter="tatuaje">Tatuajes</button>
         <button class="filter-btn" data-filter="mural">Murales</button>
-        <button class="filter-btn" data-filter="flash">Flash</button>
       </div>
 
       <div class="gallery-grid">
         <div class="gallery-item" data-cat="tatuaje">
-          <img src="img/3.webp" alt="Orquídea botanica — tatuaje" loading="lazy" />
-          <div class="gallery-item-hover"><span>Orquídea</span></div>
-        </div>
+          <img src="img/3.webp" alt="Orquídea botanica — tatuaje" loading="lazy" />        </div>
         <div class="gallery-item" data-cat="tatuaje">
           <img src="img/1.webp" alt="Tatuaje handpoke — jabalí" loading="lazy" />
-          <div class="gallery-item-hover"><span>Handpoke</span></div>
         </div>
-        <div class="gallery-item" data-cat="flash">
+        <div class="gallery-item" data-cat="tatuaje">
           <img src="img/7.webp" alt="Mariposa — flash tattoo" loading="lazy" />
-          <div class="gallery-item-hover"><span>Mariposa</span></div>
         </div>
         <div class="gallery-item" data-cat="tatuaje">
           <img src="img/2.webp" alt="Mandala puntillismo solar" loading="lazy" />
-          <div class="gallery-item-hover"><span>Mandala solar</span></div>
         </div>
         <div class="gallery-item" data-cat="tatuaje">
           <img src="img/6.webp" alt="Figura naturaleza — puntillismo" loading="lazy" />
-          <div class="gallery-item-hover"><span>Espíritu</span></div>
         </div>
         <div class="gallery-item" data-cat="tatuaje">
           <img src="img/5.webp" alt="Sirena — ilustración" loading="lazy" />
-          <div class="gallery-item-hover"><span>Sirena</span></div>
+        </div>
+        <div class="gallery-item" data-cat="mural">
+          <img src="img/mural1.webp" alt="Mural 1 — Espíritu TAO" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-cat="mural">
+          <img src="img/mural2.webp" alt="Mural 2 — Espíritu TAO" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-cat="mural">
+          <img src="img/mural3.webp" alt="Mural 3 — Espíritu TAO" loading="lazy" />
+        </div>
+        <div class="gallery-item" data-cat="mural">
+          <img src="img/mural4.webp" alt="Mural 4 — Espíritu TAO" loading="lazy" />
         </div>
       </div>
 
